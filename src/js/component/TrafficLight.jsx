@@ -2,34 +2,19 @@ import React, { useState } from "react";
 
 const TrafficLight = () => {
 	
-  const [ color, setColor] = useState("");
-  
-  return (
-      <div>
-          <div onClick={() => {
-              setColor("rojo");
-          }} style={{
-              color: color === "rojo" ? "red" : "black",backgroundColor: "black"
-          }}>
-              <h1>O</h1>
-          </div>
+    const [ selectedColor, setSelectedColor ] = useState("");
 
-          <div onClick={() => {
-              setColor("amarillo");
-          }} style={{
-              color: color === "amarillo" ? "yellow" : "black",backgroundColor: "black"
-          }}>
-              <h1>O</h1>
-          </div>
-
-          <div onClick={() => {
-              setColor("verde");
-          }} style={{
-              color: color === "verde" ? "green" : "black",backgroundColor: "black"
-          }}>
-              <h1>O</h1>
-          </div>
-      </div>
+	return (
+        
+    <>
+        <div className="traffic-light">
+            
+            <div onClick={() => setSelectedColor("red")} className={"light red" + ((selectedColor === "red") ? " glow" : "")}></div>
+            <div onClick={() => setSelectedColor("yellow")} className={"light yellow" + ((selectedColor === "yellow") ? " glow" : "")}></div>
+            <div onClick={() => setSelectedColor("green")} className={"light green" + ((selectedColor === "green") ? " glow" : "")}></div>
+        </div>
+        <div className="barra"></div>
+    </>
 	);
 };
 
